@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('phone', 20)->unique()->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->unsignedBigInteger('user_type_id');
+            $table->foreign('user_type_id')->references('id')->on('user_types');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
